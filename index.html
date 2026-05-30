@@ -2301,11 +2301,13 @@
   }
   .anim-dir-tag.new { color: #8a6d12; }
   .anim-svc-grid.cols-6 { grid-template-columns: repeat(6, 1fr); }
+  .anim-svc-grid.cols-5 { grid-template-columns: repeat(5, 1fr); }
+  .anim-svc-grid.cols-7 { grid-template-columns: repeat(7, 1fr); }
   @media (max-width: 1100px) {
-    .anim-svc-grid.cols-6 { grid-template-columns: repeat(3, 1fr); }
+    .anim-svc-grid.cols-6, .anim-svc-grid.cols-5, .anim-svc-grid.cols-7 { grid-template-columns: repeat(3, 1fr); }
   }
   @media (max-width: 720px) {
-    .anim-svc-grid.cols-6 { grid-template-columns: repeat(2, 1fr); }
+    .anim-svc-grid.cols-6, .anim-svc-grid.cols-5, .anim-svc-grid.cols-7 { grid-template-columns: repeat(2, 1fr); }
   }
   .svc-q {
     display: inline-flex;
@@ -2974,6 +2976,21 @@
     font-style: italic;
     margin-top: 3px;
   }
+  .aide-coherence-alert {
+    margin-top: 8px;
+    padding: 8px 12px;
+    background: #fbe3dd;
+    border: 1px solid #d98b76;
+    border-left: 4px solid #b04020;
+    border-radius: 0 5px 5px 0;
+    color: #6e2414;
+    font-family: var(--font-sans);
+    font-size: 8.5pt;
+    line-height: 1.4;
+    font-weight: 600;
+    font-style: normal;
+  }
+  .aide-coherence-alert strong { color: #b04020; }
   /* Variantes selon niveau */
   .aide-coherence-good {
     background: #eaf3eb;
@@ -3277,6 +3294,24 @@
     color: var(--color-accent);
     letter-spacing: 0;
   }
+  .aide-score-qual-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+  .aide-score-reserve {
+    font-size: 8pt;
+    font-weight: 700;
+    font-family: var(--font-sans);
+    color: #8a4f12;
+    background: #fdf0e0;
+    border: 1px solid #e3b87a;
+    padding: 2px 8px;
+    border-radius: 10px;
+    letter-spacing: 0;
+    text-transform: none;
+  }
   .aide-score-value {
     font-size: 18pt;
     font-weight: 700;
@@ -3322,31 +3357,93 @@
   .aide-score-poor .aide-score-value-num { color: #7a2818; }
 
   /* Renoncements */
+  .aide-renonce-alert {
+    background: #fdf0ec;
+    border: 1px solid #e6bcae;
+    border-left: 5px solid #b04020;
+    border-radius: 8px;
+    padding: 14px;
+  }
+  .aide-renonce-alert .aide-renonce-intro {
+    background: #fff;
+    border-left-color: #b04020;
+  }
   .aide-renonce-intro {
     font-family: var(--font-serif);
     font-size: 9.5pt;
-    line-height: 1.5;
+    line-height: 1.55;
     color: var(--color-text);
-    margin-bottom: 12px;
-    padding: 10px 12px;
+    margin-bottom: 14px;
+    padding: 12px 14px;
     background: #fafbfd;
     border-left: 3px solid var(--color-accent);
     border-radius: 0 4px 4px 0;
+  }
+  .aide-renonce-block {
+    margin-bottom: 16px;
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    overflow: hidden;
+    --arx: var(--color-accent);
+  }
+  .aide-renonce-block:last-child { margin-bottom: 0; }
+  .arx-axe-1 { --arx: #1d3557; }
+  .arx-axe-2 { --arx: #2a6f97; }
+  .arx-axe-3 { --arx: #3e6c91; }
+  .arx-axe-4 { --arx: #1d3557; }
+  .aide-renonce-block-head {
+    font-family: var(--font-sans);
+    font-size: 9.5pt;
+    font-weight: 700;
+    color: #fff;
+    background: var(--arx);
+    padding: 9px 14px;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    line-height: 1.3;
+  }
+  .arx-axe-4 .aide-renonce-block-head { border-top: 3px solid var(--color-star); }
+  .aide-renonce-count {
+    margin-left: auto;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 22px;
+    height: 20px;
+    padding: 0 7px;
+    border-radius: 11px;
+    background: rgba(255,255,255,0.22);
+    color: #fff;
+    font-size: 8.5pt;
+    font-weight: 700;
+  }
+  .aide-renonce-block-sub {
+    font-family: var(--font-sans);
+    font-size: 8.5pt;
+    color: var(--color-muted);
+    font-style: italic;
+    margin: 0;
+    padding: 8px 14px 0;
+    line-height: 1.4;
   }
   .aide-renonce-list {
     display: flex;
     flex-direction: column;
     gap: 8px;
-    margin-top: 4px;
+    padding: 12px;
+    background: #fafbfd;
   }
   .aide-renonce-item {
-    background: #fdf4e4;
-    border-left: 3px solid #d68b3c;
-    padding: 10px 14px;
-    border-radius: 0 4px 4px 0;
+    background: #fff;
+    border: 1px solid var(--color-border-light);
+    border-left: 3px solid var(--arx);
+    border-radius: 0 5px 5px 0;
+    padding: 9px 12px;
     font-size: 9.5pt;
     line-height: 1.5;
-    color: #5e3a0e;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.04);
   }
   .aide-renonce-dim {
     display: block;
@@ -3354,16 +3451,28 @@
     font-weight: 700;
     font-size: 9pt;
     letter-spacing: 0.01em;
-    color: #7a4d12;
     margin-bottom: 5px;
     line-height: 1.35;
+    color: var(--arx);
   }
   .aide-renonce-need {
     font-family: var(--font-sans);
     font-size: 8.5pt;
-    color: #5e3a0e;
     line-height: 1.4;
     font-style: italic;
+    color: var(--color-muted);
+  }
+  .aide-renonce-sous {
+    margin: 8px 0 0; padding: 0; list-style: none;
+    display: flex; flex-direction: column; gap: 4px;
+  }
+  .aide-renonce-sous li {
+    font-family: var(--font-sans); font-size: 8pt; line-height: 1.35;
+    background: var(--color-accent-soft);
+    color: var(--color-accent);
+    padding: 4px 9px 4px 10px;
+    border-radius: 0 3px 3px 0;
+    border-left: 2px solid var(--arx);
   }
   .aide-renonce-empty {
     background: #f3f7f1;
@@ -3945,7 +4054,7 @@
 <!-- OPTION 1 -->
 <div class="option-card">
   <h3 id="opt-1">Option 1 — Statu quo : maintien du périmètre actuel du programme, sans extension</h3>
-  <p class="intro">Le programme reste limité à ses services actuels, sans extension — notamment <strong>sans intégration des nouveaux services de la DET issus de PSE-ENV</strong> (environnement). Le périmètre métier est celui qu'il couvre aujourd'hui : l'expertise en sûreté nucléaire (INB) mobilisée via la voie IE, héritée du périmètre PSN-EXP.</p>
+  <p class="intro">Le programme reste limité à ses services actuels, sans extension — notamment <strong>sans intégration des nouveaux services de la DET issus de PSE-ENV</strong> (environnement). Le périmètre métier est celui qu'il couvre aujourd'hui : l'expertise en sûreté nucléaire (INB) mobilisée via la voie IE, héritée du périmètre PSN-EXP. Le SRI (service des réacteurs innovants, rattaché au DGA réacteurs) relève aussi de ce périmètre : le SNR y était associé au titre de PSN-EXP, le SRI a donc vocation à l'être (référent à désigner).</p>
 
   <h4>Périmètre</h4>
   <p>Services actuellement inclus dans le programme (périmètre historique hérité du PSN-EXP), sans extension :</p>
@@ -4017,6 +4126,15 @@
           <div class="org-svc partial">SFEN<span class="org-svc-desc">fournisseurs et équipements neufs</span></div>
         </div>
       </div>
+      <div class="org-dir">
+        <div class="org-dir-head">DGA Réacteurs</div>
+        <div class="org-dir-body">
+          <div class="org-svc-complex">
+            <div class="svc-name">SRI</div>
+            <div class="svc-desc">service des réacteurs innovants</div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
   <div class="org-legend">
@@ -4029,7 +4147,7 @@
     <span class="tag">Avantages —</span> Continuité totale avec le périmètre actuel. Projets, compétences, outils et instances de coordination restent dans le même cadre, sans extension ni réorganisation à conduire.
   </div>
   <div class="pro-con">
-    <span class="tag">Inconvénients —</span> Plusieurs activités d'expertise mobilisées via la voie IE à l'ASNR restent hors périmètre du programme : au sein de la DET (SCAN, SPDR), mais aussi l'expertise radioprotection des travailleurs des INB (SEI, DRP) et l'expertise portée par le BSNT (DCIS). L'instruction reste également hors périmètre, alors que plusieurs projets du programme servent déjà l'instruction (Portail REP, Portail INB-Transport) et que des travaux contribuent à certaines étapes du processus (notamment l'étape préalable).
+    <span class="tag">Inconvénients —</span> Plusieurs activités d'expertise mobilisées via la voie IE à l'ASNR restent hors périmètre du programme : au sein de la DET (SCAN, SPDR), mais aussi l'expertise radioprotection des travailleurs des INB (SEI, SSRIV, SECAM à la DRP) et l'expertise portée par le BSNT (DCIS). L'instruction reste également hors périmètre, alors que plusieurs projets du programme servent déjà l'instruction (Portail REP, Portail INB-Transport) et que des travaux contribuent à certaines étapes du processus (notamment l'étape préalable).
   </div>
 
   <h4>Portage de la coordination — DET, DT ou DG</h4>
@@ -4062,7 +4180,7 @@
     <div class="anim-node-top">Chef de programme<span class="ant-sub">secrétariat de la CATEA · animation directe des référents</span></div>
     <div class="anim-conn"></div>
 
-    <div class="anim-svc-grid">
+    <div class="anim-svc-grid cols-5">
       <div class="anim-dir-group">
         <div class="anim-dir-label">DET</div>
         <div class="anim-dir-tag firm">Référents par service</div>
@@ -4100,9 +4218,16 @@
           <div class="anim-svc-ref tba">SFEN <span class="svc-q">?</span></div>
         </div>
       </div>
+      <div class="anim-dir-group">
+        <div class="anim-dir-label">DGA Réacteurs</div>
+        <div class="anim-dir-tag firm">Référent à désigner</div>
+        <div class="anim-dir-services">
+          <div class="anim-svc-ref">SRI</div>
+        </div>
+      </div>
     </div>
 
-    <div class="anim-note">À la <strong>DET</strong> et à la <strong>DiRES</strong>, le modèle « un référent par service » s'applique directement — les référents sont déjà en place (anciens services de la direction de l'expertise en sûreté, plus SEMIA qui disposait déjà d'un référent fonctionnel). Une <strong>reconduction</strong> (ou un remplacement, à l'initiative du service ou du chef de service) est nécessaire dans la nouvelle organisation. Pour les services rattachés à <strong>DiLUDDT et DiREP</strong>, la question du niveau du référent — <strong>service ou direction</strong> — reste à arbitrer.</div>
+    <div class="anim-note">À la <strong>DET</strong> et à la <strong>DiRES</strong>, le modèle « un référent par service » s'applique directement — les référents sont déjà en place (anciens services de la direction de l'expertise en sûreté, plus SEMIA qui disposait déjà d'un référent fonctionnel). Une <strong>reconduction</strong> (ou un remplacement, sur proposition du chef de service) est nécessaire dans la nouvelle organisation. Pour les services rattachés à <strong>DiLUDDT et DiREP</strong>, la question du niveau du référent — <strong>service ou direction</strong> — reste à arbitrer.</div>
   </div>
 </div>
 
@@ -4189,6 +4314,16 @@
             <div class="svc-desc">évaluation des impacts pour les travailleurs, la population et l'environnement</div>
             <div class="bureaus-wrap"><span class="bureau-bulle">BERIN<span class="bb-role">RP travailleurs INB</span></span><span class="bureau-bulle">BERAP<span class="bb-role">RP population · impact INB</span></span></div>
           </div>
+          <div class="org-svc-complex new">
+            <div class="svc-name">SSRIV</div>
+            <div class="svc-desc">sources, applications de recherche, industrielles et vétérinaire</div>
+            <div class="bureaus-wrap"><span class="bureau-bulle">UES<span class="bb-role">expertise des sources</span></span></div>
+          </div>
+          <div class="org-svc-complex new">
+            <div class="svc-name">SECAM</div>
+            <div class="svc-desc">expertise et contrôle des applications médicales</div>
+            <div class="bureaus-wrap"><span class="bureau-bulle">UEM<span class="bb-role">expertise médicale</span></span></div>
+          </div>
         </div>
       </div>
       <div class="org-dir">
@@ -4198,6 +4333,15 @@
             <div class="svc-name">SPOCC</div>
             <div class="svc-desc">préparation, organisation et contrôle pour la crise</div>
             <div class="bureaus-wrap"><span class="bureau-bulle">BSNT</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="org-dir">
+        <div class="org-dir-head">DGA Réacteurs</div>
+        <div class="org-dir-body">
+          <div class="org-svc-complex">
+            <div class="svc-name">SRI</div>
+            <div class="svc-desc">service des réacteurs innovants</div>
           </div>
         </div>
       </div>
@@ -4246,7 +4390,7 @@
     <div class="anim-node-top">Chef de programme<span class="ant-sub">secrétariat de la CATEA · animation directe</span></div>
     <div class="anim-conn"></div>
 
-    <div class="anim-svc-grid cols-6">
+    <div class="anim-svc-grid cols-7">
       <div class="anim-dir-group">
         <div class="anim-dir-label">DET</div>
         <div class="anim-dir-tag firm">Référents par service</div>
@@ -4291,6 +4435,8 @@
         <div class="anim-dir-tag new">Référent à mettre en place</div>
         <div class="anim-dir-services">
           <div class="anim-svc-ref new">SEI</div>
+          <div class="anim-svc-ref new">SSRIV</div>
+          <div class="anim-svc-ref new">SECAM</div>
         </div>
       </div>
       <div class="anim-dir-group">
@@ -4300,9 +4446,16 @@
           <div class="anim-svc-ref new">BSNT</div>
         </div>
       </div>
+      <div class="anim-dir-group">
+        <div class="anim-dir-label">DGA Réacteurs</div>
+        <div class="anim-dir-tag firm">Référent à désigner</div>
+        <div class="anim-dir-services">
+          <div class="anim-svc-ref">SRI</div>
+        </div>
+      </div>
     </div>
 
-    <div class="anim-note">Le schéma intègre les <strong>services en place</strong> (DET, DiRES — référents existants, à reconduire ou remplacer), les <strong>services à arbitrer</strong> (DiLUDDT, DiREP — niveau service ou direction à fixer) et les <strong>services à intégrer</strong> au programme (SCAN, SPDR à la DET ; SEI à la DRP ; BSNT à la DCIS — référents à mettre en place). Réseau élargi mais animation directe encore possible.</div>
+    <div class="anim-note">Le schéma intègre les <strong>services en place</strong> (DET, DiRES — référents existants, à reconduire ou remplacer), les <strong>services à arbitrer</strong> (DiLUDDT, DiREP — niveau service ou direction à fixer) et les <strong>services à intégrer</strong> au programme (SCAN, SPDR à la DET ; SEI, SSRIV, SECAM à la DRP ; BSNT à la DCIS — référents à mettre en place). Réseau élargi mais animation directe encore possible.</div>
   </div>
 </div>
 
@@ -4402,6 +4555,16 @@
             <div class="svc-desc">évaluation des impacts pour les travailleurs, la population et l'environnement</div>
             <div class="bureaus-wrap"><span class="bureau-bulle">BERIN<span class="bb-role">RP travailleurs INB</span></span><span class="bureau-bulle">BERAP<span class="bb-role">RP population · impact INB</span></span></div>
           </div>
+          <div class="org-svc-complex">
+            <div class="svc-name">SSRIV</div>
+            <div class="svc-desc">sources, applications de recherche, industrielles et vétérinaire</div>
+            <div class="bureaus-wrap"><span class="bureau-bulle">UES<span class="bb-role">expertise des sources</span></span></div>
+          </div>
+          <div class="org-svc-complex">
+            <div class="svc-name">SECAM</div>
+            <div class="svc-desc">expertise et contrôle des applications médicales</div>
+            <div class="bureaus-wrap"><span class="bureau-bulle">UEM<span class="bb-role">expertise médicale</span></span></div>
+          </div>
         </div>
       </div>
       <div class="org-dir">
@@ -4411,6 +4574,15 @@
             <div class="svc-name">SPOCC</div>
             <div class="svc-desc">préparation, organisation et contrôle pour la crise</div>
             <div class="bureaus-wrap"><span class="bureau-bulle">BSNT</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="org-dir">
+        <div class="org-dir-head">DGA Réacteurs</div>
+        <div class="org-dir-body">
+          <div class="org-svc-complex">
+            <div class="svc-name">SRI</div>
+            <div class="svc-desc">service des réacteurs innovants</div>
           </div>
         </div>
       </div>
@@ -4457,7 +4629,7 @@
     <div class="anim-node-top">Chef de programme<span class="ant-sub">secrétariat de la CATEA · appui de relais en directions</span></div>
     <div class="anim-conn"></div>
     <div class="anim-row">
-      <div class="anim-relay"><div class="ar-name">Référents expertise</div><div class="ar-sub">DET · DiRES · DiLUDDT · DiREP · DRP · DCIS</div></div>
+      <div class="anim-relay"><div class="ar-name">Référents expertise</div><div class="ar-sub">DET · DiRES · DiLUDDT · DiREP · DRP · DCIS · SRI (DGA réacteurs)</div></div>
       <div class="anim-relay"><div class="ar-name">Référents décision et contrôle</div><div class="ar-sub">entités d'instruction</div></div>
     </div>
     <div class="anim-note warn">Le volume de référents rend l'animation directe difficile : un relais en directions devient nécessaire.</div>
@@ -4867,7 +5039,7 @@
 <div id="tab-simulateur" class="tab-panel">
 
   <div class="sim-intro">
-    Cet outil aide la direction générale à formaliser sa décision en visualisant l'analyse complète d'une combinaison choisie (ambition × portage). Une fonction de comparaison permet d'apprécier les alternatives. La sélection peut être imprimée ou exportée en PDF. Cet onglet n'apparaît pas à l'impression de la note d'analyse.
+    Cet outil aide à formaliser une décision en visualisant l'analyse complète d'une combinaison choisie (ambition × portage). Une fonction de comparaison permet d'apprécier les alternatives. La sélection peut être imprimée ou exportée en PDF.
   </div>
 
   <!-- Récapitulatif des combinaisons retenues / écartées -->
@@ -5055,9 +5227,9 @@
       num: "Option 1",
       titre: "Statu quo : maintien du périmètre actuel du programme, sans extension",
       etiquette: null,
-      perimetre: "Services actuellement inclus dans le programme (périmètre historique hérité du PSN-EXP), sans extension — notamment sans intégration des nouveaux services de la DET issus de PSE-ENV. Les services concernés : DET (SES, SSyR, SHOT, SCEPS, SEMIA), DiRES en matriciel (notamment BERAC), DiLUDDT pour les activités d'instruction-expertise (notamment BECY et BER au sein du SCMC) et DiREP pour les activités d'instruction-expertise des réacteurs électronucléaires.",
+      perimetre: "Services actuellement inclus dans le programme (périmètre historique hérité du PSN-EXP), sans extension — notamment sans intégration des nouveaux services de la DET issus de PSE-ENV. Les services concernés : DET (SES, SSyR, SHOT, SCEPS, SEMIA), DiRES en matriciel (notamment BERAC), DiLUDDT pour les activités d'instruction-expertise (notamment BECY et BER au sein du SCMC) et DiREP pour les activités d'instruction-expertise des réacteurs électronucléaires, ainsi que le SRI (service des réacteurs innovants, rattaché au DGA réacteurs), qui reprend les activités du SNR : ce dernier étant associé au programme EA, le SRI a vocation à y être associé (référent à désigner).",
       avantages: "Continuité totale avec le périmètre actuel. Projets, compétences, outils et instances de coordination restent dans le même cadre, sans extension ni réorganisation à conduire.",
-      inconvenients: "Plusieurs activités d'expertise mobilisées via la voie IE à l'ASNR restent hors périmètre : au sein de la DET (SCAN, SPDR), expertise radioprotection des travailleurs des INB (SEI, DRP), expertise portée par le BSNT (DCIS). L'instruction reste hors périmètre, alors que plusieurs projets servent déjà l'instruction (Portail REP, Portail INB-Transport) et que des travaux contribuent à l'étape préalable.",
+      inconvenients: "Plusieurs activités d'expertise mobilisées via la voie IE à l'ASNR restent hors périmètre : au sein de la DET (SCAN, SPDR), expertise radioprotection des travailleurs des INB (SEI, SSRIV, SECAM à la DRP), expertise portée par le BSNT (DCIS). L'instruction reste hors périmètre, alors que plusieurs projets servent déjà l'instruction (Portail REP, Portail INB-Transport) et que des travaux contribuent à l'étape préalable.",
       portages: {
         DET: [3,3,3,3,3],
         DT:  [2,2,2,3,2],
@@ -5077,7 +5249,7 @@
       num: "Option 2",
       titre: "Toutes les expertises mobilisées via la voie d'Instruction-Expertise (IE)",
       etiquette: null,
-      perimetre: "Toutes les activités d'expertise relevant du processus Instruction-Expertise (IE) à l'ASNR, au-delà du seul périmètre INB / sûreté couvert par l'option 1 — incluant la radioprotection, les Nucléaires de Proximité (NPX), l'environnement et les autres domaines mobilisés via la voie IE. Services ajoutés : SCAN (caractérisation des sites et aléas naturels) et SPDR (pollutions et déchets radioactifs) au sein de la DET, services d'expertise radioprotection (SEI, DRP) et BSNT (DCIS), ainsi que les services traitant les NPX et l'environnement.",
+      perimetre: "Toutes les activités d'expertise relevant du processus Instruction-Expertise (IE) à l'ASNR, au-delà du seul périmètre INB / sûreté couvert par l'option 1 — incluant la radioprotection, les Nucléaires de Proximité (NPX), l'environnement et les autres domaines mobilisés via la voie IE. Services ajoutés : SCAN (caractérisation des sites et aléas naturels) et SPDR (pollutions et déchets radioactifs) au sein de la DET, services d'expertise radioprotection de la DRP (SEI — BERIN, BERAP ; SSRIV — UES ; SECAM — UEM) et BSNT (DCIS), ainsi que les services traitant les NPX et l'environnement.",
       avantages: "Couvre l'ensemble des activités d'expertise mobilisées via la voie IE à l'ASNR. Reste sur une seule ligne fonctionnelle, l'expertise. Mutualisation possible des outils et compétences entre domaines.",
       inconvenients: "L'instruction reste hors périmètre.",
       portages: {
@@ -5142,88 +5314,168 @@
   };
 
   var criterionRationales = {
-    "1": [
-      "Le périmètre correspond à un sous-ensemble des activités de la DET. La DET se situe au niveau de ce périmètre ; la DT et la DG le couvrent depuis un niveau organisationnel plus large.",
-      "Le périmètre relève d'une direction métier. La DET porte une portée institutionnelle de direction ; la DT et la DG portent une portée institutionnelle plus étendue.",
-      "La DET héberge directement les équipes d'expertise mobilisées via la voie IE ; la DT en est distante d'un niveau hiérarchique, la DG de deux.",
-      "Le périmètre reste interne à la DET et concerne un seul processus (Instruction-Expertise sur un sous-périmètre). Les trois niveaux de portage mobilisent des moyens de façon équivalente, sans couverture multi-processus.",
-      "Le périmètre étant restreint à la DET, la DET représente directement les besoins métiers vers les fonctions supports (référentiels, numérique) sans intermédiaire ; la DT et la DG portent ces besoins depuis un niveau plus distant et avec un périmètre plus restreint à articuler."
-    ],
-    "2": [
-      "Le périmètre couvre plusieurs directions métiers (DET, DiRES, DiLUDDT, DiREP, DRP, DCIS). La DT est l'autorité technique positionnée au-dessus de ces directions ; la DET le porterait au-delà de son périmètre direct ; la DG se situe au niveau de l'ensemble de l'ASNR.",
-      "Pour un programme transverse à plusieurs directions métiers, la DT porte une portée institutionnelle à l'échelle de la ligne Instruction-Expertise ; la DET porte à l'échelle d'une direction, la DG à l'échelle de l'ASNR.",
-      "La DET et la DT sont proches des équipes d'expertise ; la DG en est distante par sa position dans l'organigramme.",
-      "Plus le niveau de portage est élevé, plus le périmètre de mobilisation transverse est large : la DT et la DG peuvent mobiliser à travers les directions métiers ; la DET mobilise ses moyens propres. Le programme reste centré sur un seul processus (Instruction-Expertise).",
-      "La DT, positionnée au-dessus des directions Instruction-Expertise, peut représenter et prioriser les besoins métiers transverses vers les fonctions supports (référentiels, numérique) sur l'ensemble du périmètre. La DET porte ces besoins pour son propre périmètre ; la DG les porte depuis un niveau plus distant."
-    ],
-    "3": [
-      "Le périmètre couvre deux lignes fonctionnelles (expertise + décision et contrôle). La DG est positionnée au-dessus des deux ; la DT relève de la ligne Instruction-Expertise ; la DET relève d'une direction au sein de cette ligne.",
-      "Pour un programme traversant deux lignes fonctionnelles, la DG porte une portée institutionnelle couvrant les deux ; la DT et la DET portent sur le périmètre de la ligne Instruction-Expertise.",
-      "La DET conserve la proximité la plus directe avec les équipes d'expertise ; la DT et la DG en sont distantes à mesure que le périmètre s'élargit.",
-      "Le périmètre couvre deux processus (Instruction-Expertise et instruction). La DG mobilise à travers les deux lignes fonctionnelles et les deux processus ; la DT couvre la ligne Instruction-Expertise et porte une partie des processus ; la DET mobilise sur son propre périmètre.",
-      "Le programme traverse deux lignes fonctionnelles : la DG peut représenter et prioriser les besoins métiers vers les fonctions supports (référentiels, numérique) sur l'ensemble du périmètre. La DT couvre la ligne Instruction-Expertise ; la DET porte ses besoins propres."
-    ],
-    "4": [
-      "Le programme général couvre l'ensemble des métiers de l'ASNR, articulé en plusieurs programmes (dont le PMA est l'une des composantes), avec une coordination générale. La DG est positionnée au niveau de cet ensemble ; la DT relève de la ligne Instruction-Expertise, la DET d'une direction au sein de cette ligne.",
-      "Pour un programme général à l'échelle de l'ASNR, la DG porte une portée institutionnelle correspondant à cet ensemble ; la DT porte sur la ligne Instruction-Expertise, la DET sur une direction.",
-      "Le programme étant général et articulant plusieurs programmes métiers, la proximité avec un métier spécifique est moins déterminante ; les trois niveaux de portage se situent à distance comparable des métiers particuliers.",
-      "Le programme général couvre l'ensemble des métiers et des processus métiers de l'ASNR, articulé en plusieurs programmes. La DG mobilise à travers toute l'ASNR et l'ensemble des processus ; la DT à travers la ligne Instruction-Expertise et porte une partie des processus ; la DET sur son propre périmètre.",
-      "La DG, au niveau de l'ensemble des programmes ASNR, peut représenter et prioriser les besoins métiers de l'ensemble des directions vers les fonctions supports (référentiels, numérique), en articulant les orientations issues des différents programmes. La DT porte ces besoins sur la ligne Instruction-Expertise ; la DET sur son propre périmètre."
-    ]
+    "1": {
+      compare: [
+        "Le périmètre correspond à un sous-ensemble des activités de la DET. La DET se situe au niveau de ce périmètre ; la DT et la DG le couvrent depuis un niveau organisationnel plus large.",
+        "Le périmètre relève d'une direction métier. La DET porte une portée institutionnelle de direction ; la DT et la DG portent une portée institutionnelle plus étendue.",
+        "La DET héberge directement les équipes d'expertise mobilisées via la voie IE ; la DT en est distante d'un niveau hiérarchique, la DG de deux.",
+        "Le périmètre reste interne à la DET et concerne un seul processus (Instruction-Expertise sur un sous-périmètre). Les trois niveaux de portage mobilisent des moyens de façon équivalente, sans couverture multi-processus.",
+        "Le périmètre étant restreint à la DET, la DET représente directement les besoins métiers vers les fonctions supports (référentiels, numérique) sans intermédiaire ; la DT et la DG portent ces besoins depuis un niveau plus distant et avec un périmètre plus restreint à articuler."
+      ],
+      DET: [
+        "Le périmètre se limite à un sous-ensemble des missions de la DET. Le portage par la DET épouse exactement ce périmètre : toutes les missions couvertes relèvent de son propre champ.",
+        "Les missions couvertes relèvent d'une seule direction métier. La portée institutionnelle de la DET, à l'échelle de la direction, correspond à cette étendue.",
+        "La DET, niveau de portage le plus bas, héberge directement les équipes d'expertise mobilisées via la voie IE : au contact des métiers, elle offre la proximité la plus forte.",
+        "Les missions couvertes restent internes à la DET et relèvent d'un seul processus (Instruction-Expertise sur un sous-périmètre). Aucune mobilisation transverse à d'autres directions ou processus n'est requise : ce périmètre ne sollicite pas ce levier.",
+        "Le périmètre étant restreint à la DET, celle-ci représente directement les besoins métiers vers les fonctions supports (référentiels, numérique), sans intermédiaire."
+      ],
+      DT: [
+        "Le périmètre se limite à un sous-ensemble des missions de la DET. La DT, autorité technique au-dessus de cette direction, se situe au-dessus du périmètre couvert : son niveau est plus large que les missions en jeu ne l'appellent.",
+        "Les missions couvertes relèvent d'une seule direction métier. La portée institutionnelle de la DT, à l'échelle de la ligne Instruction-Expertise, dépasse cette étendue.",
+        "Autorité technique positionnée au-dessus des directions de la ligne Instruction-Expertise, la DT est distante d'un niveau hiérarchique des équipes d'expertise mobilisées via la voie IE. Ce niveau de portage plus élevé que la DET l'éloigne d'un cran des métiers : la proximité reste réelle mais moindre.",
+        "Les missions couvertes restent internes à la DET et relèvent d'un seul processus (Instruction-Expertise). À ce périmètre mono-direction et mono-processus, la capacité de mobilisation transverse de la DT n'est pas sollicitée, sans que cela pénalise le portage à cette étendue.",
+        "Le périmètre étant restreint à une direction, la DT représenterait ses besoins vers les fonctions supports (référentiels, numérique) depuis un niveau intermédiaire, sans valeur ajoutée à cette étendue."
+      ],
+      DG: [
+        "Le périmètre se limite à un sous-ensemble des missions de la DET. La DG, au niveau de l'ASNR, se situe très au-dessus du périmètre couvert : son niveau est sans rapport avec l'étendue des missions en jeu.",
+        "Les missions couvertes relèvent d'une seule direction métier. La portée institutionnelle de la DG, à l'échelle de l'ASNR, est sans commune mesure avec cette étendue.",
+        "Positionnée au niveau de l'ensemble de l'ASNR, la DG est distante de deux niveaux hiérarchiques des équipes d'expertise mobilisées via la voie IE. Niveau de portage le plus élevé, c'est le plus éloigné des métiers : la proximité y est la plus faible.",
+        "Les missions couvertes restent internes à la DET et relèvent d'un seul processus (Instruction-Expertise). À ce périmètre mono-direction et mono-processus, la capacité de mobilisation transverse de la DG n'est pas sollicitée, sans que cela pénalise le portage à cette étendue.",
+        "Le périmètre étant restreint à une direction, la DG représenterait ses besoins vers les fonctions supports (référentiels, numérique) depuis le niveau le plus éloigné, sans rapport avec l'étendue couverte."
+      ]
+    },
+    "2": {
+      compare: [
+        "Le périmètre couvre plusieurs directions métiers (DET, DiRES, DiLUDDT, DiREP, DRP, DCIS) ainsi que le SRI rattaché au DGA réacteurs. La DT est l'autorité technique positionnée au-dessus de ces directions ; la DET le porterait au-delà de son périmètre direct ; la DG se situe au niveau de l'ensemble de l'ASNR.",
+        "Pour un programme transverse à plusieurs directions métiers, la DT porte une portée institutionnelle à l'échelle de la ligne Instruction-Expertise ; la DET porte à l'échelle d'une direction, la DG à l'échelle de l'ASNR.",
+        "La DET et la DT sont proches des équipes d'expertise ; la DG en est distante par sa position dans l'organigramme.",
+        "Plus le niveau de portage est élevé, plus le périmètre de mobilisation transverse est large : la DT et la DG peuvent mobiliser à travers les directions métiers ; la DET mobilise ses moyens propres. Le programme reste centré sur un seul processus (Instruction-Expertise).",
+        "La DT, positionnée au-dessus des directions Instruction-Expertise, peut représenter et prioriser les besoins métiers transverses vers les fonctions supports (référentiels, numérique) sur l'ensemble du périmètre. La DET porte ces besoins pour son propre périmètre ; la DG les porte depuis un niveau plus distant."
+      ],
+      DET: [
+        "Le périmètre englobe des missions relevant d'autres directions métiers (DiRES, DiLUDDT, DiREP, DRP, DCIS) et le SRI (DGA réacteurs), au-delà de la DET. Le portage par la DET est adapté aux missions de son périmètre propre, mais non à celles des autres directions, qui devraient alors être portées par une autre entité.",
+        "Les missions couvrent plusieurs directions métiers. La portée institutionnelle de la DET, à l'échelle d'une seule direction, reste en deçà de cette étendue.",
+        "La DET, niveau de portage le plus bas, héberge directement une partie des équipes d'expertise mobilisées via la voie IE et reste au contact des métiers : c'est le portage le plus proche du terrain d'expertise.",
+        "Le périmètre traverse plusieurs directions métiers, mais la DET ne mobilise que ses moyens propres : elle ne peut entraîner les autres directions concernées. Le programme reste centré sur un seul processus (Instruction-Expertise).",
+        "La DET représente les besoins métiers vers les fonctions supports (référentiels, numérique) pour son seul périmètre, sans couvrir les autres directions concernées par le programme."
+      ],
+      DT: [
+        "Le périmètre englobe des missions relevant de plusieurs directions métiers (DET, DiRES, DiLUDDT, DiREP, DRP, DCIS) ainsi que le SRI rattaché au DGA réacteurs. La DT, autorité technique au-dessus de ces directions, est positionnée pour en porter l'ensemble : aucun bloc de missions ne déborde son niveau.",
+        "Les missions couvrent plusieurs directions de la ligne Instruction-Expertise. La portée institutionnelle de la DT, à l'échelle de cette ligne, correspond à cette étendue.",
+        "Autorité technique positionnée au-dessus des directions de la ligne Instruction-Expertise, la DT est distante d'un niveau hiérarchique des équipes d'expertise. Plus élevée que la DET, elle s'éloigne d'un cran des métiers : la proximité s'atténue.",
+        "Le périmètre traverse plusieurs directions métiers : la DT peut mobiliser à travers ces directions de la ligne Instruction-Expertise. Le programme reste centré sur un seul processus (Instruction-Expertise).",
+        "La DT, au-dessus des directions de la ligne Instruction-Expertise, représente et priorise les besoins métiers vers les fonctions supports (référentiels, numérique) sur l'ensemble du périmètre."
+      ],
+      DG: [
+        "Le périmètre englobe des missions relevant de plusieurs directions métiers (DET, DiRES, DiLUDDT, DiREP, DRP, DCIS) et le SRI (DGA réacteurs), au sein de la ligne Instruction-Expertise. La DG, au niveau de l'ASNR, se situe au-dessus du périmètre couvert : son niveau dépasse l'étendue des missions en jeu.",
+        "Les missions couvrent plusieurs directions de la ligne Instruction-Expertise. La portée institutionnelle de la DG, à l'échelle de l'ASNR, dépasse cette étendue.",
+        "Positionnée au niveau de l'ensemble de l'ASNR, la DG est distante de deux niveaux hiérarchiques des équipes d'expertise. Niveau de portage le plus élevé, c'est le plus éloigné des métiers : la proximité y est la plus faible.",
+        "Le périmètre traverse plusieurs directions métiers : la DG peut mobiliser à travers ces directions. Le programme reste centré sur un seul processus (Instruction-Expertise).",
+        "La DG représente les besoins métiers vers les fonctions supports (référentiels, numérique) sur l'ensemble du périmètre, mais depuis un niveau éloigné des directions concernées."
+      ]
+    },
+    "3": {
+      compare: [
+        "Le périmètre couvre deux lignes fonctionnelles (expertise + décision et contrôle). La DG est positionnée au-dessus des deux ; la DT relève de la ligne Instruction-Expertise ; la DET relève d'une direction au sein de cette ligne.",
+        "Pour un programme traversant deux lignes fonctionnelles, la DG porte une portée institutionnelle couvrant les deux ; la DT et la DET portent sur le périmètre de la ligne Instruction-Expertise.",
+        "La DET conserve la proximité la plus directe avec les équipes d'expertise ; la DT et la DG en sont distantes à mesure que le périmètre s'élargit.",
+        "Le périmètre couvre deux processus (Instruction-Expertise et instruction). La DG mobilise à travers les deux lignes fonctionnelles et les deux processus ; la DT couvre la ligne Instruction-Expertise et porte une partie des processus ; la DET mobilise sur son propre périmètre.",
+        "Le programme traverse deux lignes fonctionnelles : la DG peut représenter et prioriser les besoins métiers vers les fonctions supports (référentiels, numérique) sur l'ensemble du périmètre. La DT couvre la ligne Instruction-Expertise ; la DET porte ses besoins propres."
+      ],
+      DET: [
+        "Le périmètre couvre deux lignes fonctionnelles — expertise et décision et contrôle. La DET ne relève que d'une direction de la ligne Instruction-Expertise : les missions de la ligne décision et contrôle, comme celles des autres directions, débordent son périmètre et devraient être portées par d'autres entités.",
+        "Les missions relèvent de deux lignes fonctionnelles. La portée institutionnelle de la DET, limitée à une direction de la ligne Instruction-Expertise, ne couvre qu'une fraction de cette étendue.",
+        "La DET, niveau de portage le plus bas, conserve le contact le plus direct avec les équipes d'expertise mobilisées via la voie IE : c'est le portage le plus proche des métiers.",
+        "Le périmètre couvre deux processus (Instruction-Expertise et instruction). La DET ne mobilise que sur son propre périmètre : elle ne peut entraîner ni la ligne décision et contrôle ni les autres directions.",
+        "Le programme traverse deux lignes fonctionnelles, mais la DET ne porte que ses besoins propres vers les fonctions supports (référentiels, numérique)."
+      ],
+      DT: [
+        "Le périmètre couvre deux lignes fonctionnelles — expertise et décision et contrôle. La DT couvre la ligne Instruction-Expertise mais non la ligne décision et contrôle : les missions de cette seconde ligne débordent son périmètre et devraient être portées par une autre entité.",
+        "Les missions relèvent de deux lignes fonctionnelles. La portée institutionnelle de la DT couvre la ligne Instruction-Expertise, mais pas la ligne décision et contrôle.",
+        "Autorité technique positionnée au-dessus des directions de la ligne Instruction-Expertise, la DT est distante d'un niveau hiérarchique des équipes d'expertise. Plus élevée que la DET, elle est un cran plus éloignée des métiers : la proximité s'atténue.",
+        "Le périmètre couvre deux processus (Instruction-Expertise et instruction). La DT mobilise la ligne Instruction-Expertise et une partie des processus, mais n'entraîne que partiellement la ligne décision et contrôle.",
+        "Le programme traverse deux lignes fonctionnelles : la DT représente les besoins de la ligne Instruction-Expertise vers les fonctions supports (référentiels, numérique), mais non ceux de la ligne décision et contrôle."
+      ],
+      DG: [
+        "Le périmètre couvre deux lignes fonctionnelles — expertise et décision et contrôle. La DG, positionnée au-dessus des deux, se situe au niveau de l'ensemble du périmètre.",
+        "Les missions relèvent de deux lignes fonctionnelles. La portée institutionnelle de la DG couvre les deux, en correspondance avec le périmètre.",
+        "Positionnée au niveau de l'ensemble de l'ASNR, la DG est distante de deux niveaux hiérarchiques des équipes d'expertise. Niveau de portage le plus élevé, c'est le plus éloigné des métiers : la proximité y est la plus faible.",
+        "Le périmètre couvre deux processus (Instruction-Expertise et instruction). La DG mobilise à travers les deux lignes fonctionnelles et les deux processus.",
+        "Le programme traverse deux lignes fonctionnelles : la DG représente et priorise les besoins métiers vers les fonctions supports (référentiels, numérique) sur l'ensemble du périmètre."
+      ]
+    },
+    "4": {
+      compare: [
+        "Le programme général couvre l'ensemble des métiers de l'ASNR, articulé en plusieurs programmes (dont le PMA est l'une des composantes), avec une coordination générale. La DG est positionnée au niveau de cet ensemble ; la DT relève de la ligne Instruction-Expertise, la DET d'une direction au sein de cette ligne.",
+        "Pour un programme général à l'échelle de l'ASNR, la DG porte une portée institutionnelle correspondant à cet ensemble ; la DT porte sur la ligne Instruction-Expertise, la DET sur une direction.",
+        "Le programme étant général et articulant plusieurs programmes métiers, la proximité avec un métier spécifique est moins déterminante ; les trois niveaux de portage se situent à distance comparable des métiers particuliers.",
+        "Le programme général couvre l'ensemble des métiers et des processus métiers de l'ASNR, articulé en plusieurs programmes. La DG mobilise à travers toute l'ASNR et l'ensemble des processus ; la DT à travers la ligne Instruction-Expertise et porte une partie des processus ; la DET sur son propre périmètre.",
+        "La DG, au niveau de l'ensemble des programmes ASNR, peut représenter et prioriser les besoins métiers de l'ensemble des directions vers les fonctions supports (référentiels, numérique), en articulant les orientations issues des différents programmes. La DT porte ces besoins sur la ligne Instruction-Expertise ; la DET sur son propre périmètre."
+      ],
+      DET: [
+        "Le programme couvre l'ensemble des métiers de l'ASNR, articulés en plusieurs programmes (dont le PMA). La DET ne relève que d'une direction de la ligne Instruction-Expertise : l'essentiel des missions déborde son périmètre et relèverait d'autres entités.",
+        "Le programme est à l'échelle de l'ASNR. La portée institutionnelle de la DET, limitée à une direction, ne couvre qu'une fraction de cet ensemble.",
+        "Le programme est général et articule plusieurs programmes métiers : la proximité avec un métier particulier n'est plus déterminante. La DET resterait au contact de son seul métier, mais le programme embrasse l'ensemble des métiers — à cette échelle, le critère ne départage pas les niveaux de portage.",
+        "Le programme couvre l'ensemble des métiers et des processus de l'ASNR. La DET ne mobilise que sur son propre périmètre, sans entraîner les autres directions ni les autres processus.",
+        "Au sein d'un programme général ASNR, la DET ne porte que ses besoins propres vers les fonctions supports (référentiels, numérique)."
+      ],
+      DT: [
+        "Le programme couvre l'ensemble des métiers de l'ASNR, articulés en plusieurs programmes (dont le PMA). La DT ne couvre que la ligne Instruction-Expertise : les autres métiers et programmes débordent son périmètre.",
+        "Le programme est à l'échelle de l'ASNR. La portée institutionnelle de la DT couvre la ligne Instruction-Expertise, mais non l'ensemble des métiers.",
+        "Le programme est général et articule plusieurs programmes métiers : la proximité avec un métier particulier n'est plus déterminante. Autorité technique au-dessus des directions de la ligne Instruction-Expertise, la DT n'est ni la plus proche ni la plus éloignée des équipes d'expertise — à cette échelle, le critère ne départage pas les niveaux de portage.",
+        "Le programme couvre l'ensemble des métiers et des processus de l'ASNR. La DT mobilise la ligne Instruction-Expertise et une partie des processus, mais pas l'ensemble des métiers.",
+        "Au sein d'un programme général ASNR, la DT représente les besoins de la ligne Instruction-Expertise vers les fonctions supports (référentiels, numérique), mais non ceux de l'ensemble des directions."
+      ],
+      DG: [
+        "Le programme couvre l'ensemble des métiers de l'ASNR, articulés en plusieurs programmes (dont le PMA). La DG, au niveau de cet ensemble, se situe au niveau du périmètre.",
+        "Le programme est à l'échelle de l'ASNR. La portée institutionnelle de la DG correspond à cet ensemble.",
+        "Le programme est général et articule plusieurs programmes métiers : la proximité avec un métier particulier n'est plus déterminante. La DG est structurellement le niveau le plus élevé, mais comme le programme couvre l'ensemble des métiers, le critère ne départage pas les niveaux de portage à cette échelle.",
+        "Le programme couvre l'ensemble des métiers et des processus de l'ASNR. La DG mobilise à travers toute l'ASNR et l'ensemble des processus.",
+        "Au niveau de l'ensemble des programmes ASNR, la DG représente et priorise les besoins métiers de l'ensemble des directions vers les fonctions supports (référentiels, numérique), en articulant les orientations des différents programmes."
+      ]
+    }
   };
 
   // Activités structurantes du programme avec leur portage minimum requis
   // (légitimité institutionnelle nécessaire pour porter l'activité)
   var activites = {
     POS_AI_ACT: {
-      label: "Positionnement institutionnel de l'ASNR vis-à-vis de l'AI Act",
+      label: "Déclinaison de l'AI Act au secteur nucléaire",
+      axe: 4,
       portage_min: "DG",
-      raison: "engage l'autorité vis-à-vis d'un règlement européen — décision institutionnelle"
-    },
-    GAP_ANALYSIS: {
-      label: "Analyse d'écart (gap analysis) ASNR vis-à-vis de l'AI Act",
-      portage_min: "DG",
-      raison: "production qui engage la position de l'ASNR comme régulateur sur le sujet IA"
-    },
-    DOCTRINE_ASNR: {
-      label: "Doctrine ASNR sur l'usage de l'IA en sûreté nucléaire",
-      portage_min: "DG",
-      raison: "doctrine au nom de l'autorité, engage l'ensemble de l'ASNR"
+      sousActions: ["Réalisation de l'analyse d'écart (gap analysis) vis-à-vis de l'AI Act", "Conduite du sandboxing institutionnel (expérimentations encadrées avec la filière)"],
+      raison: "La déclinaison de l'AI Act soulève dans le nucléaire des questionnements transverses, qui peuvent englober des questions relevant de l'instruction-expertise et de l'autorisation. Les piloter depuis un portage circonscrit ne serait pas cohérent — donc pas légitime"
     },
     GUIDES_ASNR: {
-      label: "Guides ASNR sur l'IA à destination de la filière",
+      label: "Élaboration des guides ASNR sur l'IA à destination de la filière",
+      axe: 4,
       portage_min: "DG",
-      raison: "production normative au nom de l'autorité"
-    },
-    DECISIONS_ASNR_IA: {
-      label: "Décisions ASNR encadrant les applications IA dans les dossiers",
-      portage_min: "DG",
-      raison: "actes réglementaires de l'autorité"
-    },
-    SANDBOXING_INSTITUTIONNEL: {
-      label: "Sandboxing institutionnel (expérimentations encadrées avec la filière)",
-      portage_min: "DG",
-      raison: "engage l'autorité dans un dispositif d'expérimentation réglementaire"
+      raison: "Les guides engagent une doctrine transverse à l'ensemble du champ régulé. Les porter depuis un portage circonscrit ne serait pas cohérent"
     },
     INTERNATIONAL_STRATEGIQUE: {
-      label: "Représentation institutionnelle de l'ASNR à l'international sur l'IA (AIEA, AEN, AI Act)",
+      label: "Coordination de la position de l'ASNR à l'international sur l'IA (AIEA, AEN, AI Act)",
+      axe: 4,
       portage_min: "DT",
-      raison: "portage stratégique au-delà des échanges techniques entre experts"
+      raison: "L'engagement international propre à un domaine (IA médicale, IA de crise…) est porté par la direction concernée, qui en a le pilotage. Ce qui appelle un positionnement plus élevé, ce n'est pas seulement la coordination d'ensemble mais aussi la vue d'ensemble : positions communes et éléments structurants partagés"
     },
     MUTUALISATION_TRANSVERSE: {
-      label: "Mutualisation des outils et données entre directions",
+      label: "Mutualisation des outils et des données entre directions",
+      axe: 2,
       portage_min: "DT",
-      raison: "transverse aux directions, requiert l'autorité technique"
+      raison: "Chaque direction développe et exploite ses propres outils et données, et des coopérations existent déjà. Ce qui appelle un positionnement plus élevé, c'est de les structurer en mettant les directions en synergie : les faire travailler ensemble, identifier les points d'articulation et mutualiser ce qui peut l'être (outils, données, cadres communs)"
+    },
+    GOUVERNANCE_DONNEES: {
+      label: "Gouvernance et interface des données",
+      axe: 2,
+      portage_min: "DT",
+      sousActions: ["Déclinaison de la gouvernance des données de l'ASNR", "Interface de données avec les industriels"],
+      raison: "Chaque direction produit et gère ses propres données, dans un cadre de gouvernance ASNR qui existe déjà. Ce qui appelle un positionnement plus élevé, c'est de le décliner à l'échelle du programme et d'organiser l'interface avec les industriels : mettre les directions en synergie autour de règles, de référentiels et d'une qualité partagés. C'est, concrètement, une activité pleinement transverse"
     },
     ACCULTURATION_TRANSVERSE: {
-      label: "Acculturation IA et compétences hybrides transverses aux directions",
+      label: "Acculturation à l'IA et développement des compétences hybrides transverses",
+      axe: 2,
       portage_min: "DT",
-      raison: "engage plusieurs directions, requiert l'autorité technique au minimum"
-    },
-    PARANGONNAGE_FILIERE: {
-      label: "Parangonnage industriel structuré au-delà du périmètre sûreté (filière complète)",
-      portage_min: "DT",
-      raison: "engage l'ASNR vis-à-vis de la filière sur un périmètre élargi"
+      raison: "Chaque direction conduit déjà l'acculturation et la montée en compétences propres à son métier, et des échanges existent. Ce qui appelle un positionnement plus élevé, c'est de les structurer en mettant les directions en synergie : les faire travailler ensemble, identifier les points d'articulation et construire un socle commun de compétences hybrides"
     }
   };
 
@@ -5231,11 +5483,61 @@
   var optionActivites = {
     1: [],
     2: ["ACCULTURATION_TRANSVERSE"],
-    3: ["INTERNATIONAL_STRATEGIQUE", "ACCULTURATION_TRANSVERSE", "MUTUALISATION_TRANSVERSE", "PARANGONNAGE_FILIERE"],
-    4: ["INTERNATIONAL_STRATEGIQUE", "ACCULTURATION_TRANSVERSE", "MUTUALISATION_TRANSVERSE", "PARANGONNAGE_FILIERE", "POS_AI_ACT", "GAP_ANALYSIS", "DOCTRINE_ASNR", "GUIDES_ASNR", "DECISIONS_ASNR_IA", "SANDBOXING_INSTITUTIONNEL"]
+    3: ["INTERNATIONAL_STRATEGIQUE", "ACCULTURATION_TRANSVERSE", "MUTUALISATION_TRANSVERSE", "GOUVERNANCE_DONNEES"],
+    4: ["INTERNATIONAL_STRATEGIQUE", "ACCULTURATION_TRANSVERSE", "MUTUALISATION_TRANSVERSE", "GOUVERNANCE_DONNEES", "POS_AI_ACT", "GUIDES_ASNR"]
   };
 
   var portageRang = { DET: 1, DT: 2, DG: 3 };
+
+  var AXES = {
+    1: "Anticiper les usages de l'IA dans l'industrie nucléaire",
+    2: "Capitaliser sur les savoir-faire et les données existants",
+    3: "Préparer l'expertise de demain",
+    4: "Construire un cadre Sûreté et IA de confiance"
+  };
+
+  // Activités structurantes qui, à (option, portage), débordent le niveau choisi
+  // (hors périmètre de l'ambition OU portage insuffisant) — réunies sans distinction.
+  function getActivitesConcernees(option, portage) {
+    var rang = portageRang[portage];
+    var actsAmbition = optionActivites[option] || [];
+    var res = [];
+    TOUTES_ACTIVITES.forEach(function (key) {
+      var act = activites[key];
+      var horsPerimetre = actsAmbition.indexOf(key) === -1;
+      var portageInsuffisant = portageRang[act.portage_min] > rang;
+      if (horsPerimetre || portageInsuffisant) {
+        res.push({ label: act.label, axe: act.axe, sousActions: act.sousActions, raison: act.raison });
+      }
+    });
+    return res;
+  }
+
+  // Univers complet des activités structurantes possibles du programme
+  var TOUTES_ACTIVITES = [
+    "POS_AI_ACT", "GUIDES_ASNR",
+    "INTERNATIONAL_STRATEGIQUE", "MUTUALISATION_TRANSVERSE",
+    "ACCULTURATION_TRANSVERSE", "GOUVERNANCE_DONNEES"
+  ];
+
+  // Renoncements par limitation d'ambition : activités hors du périmètre de l'option
+  // (abandonnées de facto par le choix d'ambition, indépendamment du portage)
+  function getRenoncementsAmbition(option) {
+    var actsAmbition = optionActivites[option] || [];
+    var rens = [];
+    TOUTES_ACTIVITES.forEach(function (key) {
+      if (actsAmbition.indexOf(key) === -1) {
+        var act = activites[key];
+        rens.push({
+          label: act.label,
+          portage_min: act.portage_min,
+          sousActions: act.sousActions,
+          raison: act.raison
+        });
+      }
+    });
+    return rens;
+  }
 
   // Calcul des renoncements pour une combinaison (option, portage)
   // = activités du périmètre dont la légitimité requise dépasse le portage choisi
@@ -5249,6 +5551,7 @@
         rens.push({
           label: act.label,
           portage_min: act.portage_min,
+          sousActions: act.sousActions,
           raison: act.raison
         });
       }
@@ -5290,13 +5593,14 @@
     return                { cls: 'poor', label: 'Très faible cohérence' };
   }
 
-  function animSchemaHTML(num) {
+  function animSchemaHTML(num, por) {
     var intro, catea, cateaSub, top, topSub, row, note, noteWarn = false, note2 = '', rowIntro = '';
+    var aut = ({DET:"la DET", DT:"la DT", DG:"la DG"})[por] || "la direction de portage retenue";
     if (num == 1) {
-      intro = "Le programme est supervisé par la CATEA (cellule d'animation transverse de l'expertise augmentée), placée sous l'autorité du directeur de la DET, dont le chef de programme assure le secrétariat. Le programme conserve son modèle « un référent par service » — c'est un statu quo au sens du processus métier (l'expertise en sûreté actuelle correspond à l'instruction-expertise en sûreté dans la nouvelle organisation). Cela ne constitue pas pour autant un statu quo organisationnel : la dispersion des services entre plusieurs directions impose de transposer le dispositif.";
-      catea = 'CATEA'; cateaSub = "supervision · priorisation · budget — sous l'autorité du directeur de la DET";
+      intro = "Le programme est supervisé par la CATEA (cellule d'animation transverse de l'expertise augmentée), placée sous l'autorité de " + aut + ", dont le chef de programme assure le secrétariat. Le programme conserve son modèle « un référent par service » — c'est un statu quo au sens du processus métier (l'expertise en sûreté actuelle correspond à l'instruction-expertise en sûreté dans la nouvelle organisation). Cela ne constitue pas pour autant un statu quo organisationnel : la dispersion des services entre plusieurs directions impose de transposer le dispositif.";
+      catea = 'CATEA'; cateaSub = "supervision · priorisation · budget — sous l'autorité de " + aut + "";
       top = 'Chef de programme'; topSub = 'secrétariat de la CATEA · animation directe des référents';
-      row = '<div class="anim-svc-grid">'
+      row = '<div class="anim-svc-grid cols-5">'
           + '<div class="anim-dir-group"><div class="anim-dir-label">DET</div><div class="anim-dir-tag firm">Référents par service</div><div class="anim-dir-services">'
           + '<div class="anim-svc-ref">SES</div><div class="anim-svc-ref">SSyR</div><div class="anim-svc-ref">SHOT</div><div class="anim-svc-ref">SCEPS</div><div class="anim-svc-ref">SEMIA</div>'
           + '</div></div>'
@@ -5309,13 +5613,16 @@
           + '<div class="anim-dir-group"><div class="anim-dir-label">DiREP</div><div class="anim-dir-tag tba">Niveau du référent à arbitrer</div><div class="anim-dir-services">'
           + '<div class="anim-svc-ref tba">SSPE <span class="svc-q">?</span></div><div class="anim-svc-ref tba">SMRE <span class="svc-q">?</span></div><div class="anim-svc-ref tba">SSET <span class="svc-q">?</span></div><div class="anim-svc-ref tba">SFEN <span class="svc-q">?</span></div>'
           + '</div></div>'
+          + '<div class="anim-dir-group"><div class="anim-dir-label">DGA Réacteurs</div><div class="anim-dir-tag firm">Référent à désigner</div><div class="anim-dir-services">'
+          + '<div class="anim-svc-ref">SRI</div>'
+          + '</div></div>'
           + '</div>';
-      note = "À la DET et à la DiRES, le modèle « un référent par service » s'applique directement — les référents sont déjà en place (anciens services de la direction de l'expertise en sûreté, plus SEMIA qui disposait déjà d'un référent fonctionnel). Une reconduction (ou un remplacement, à l'initiative du service ou du chef de service) est nécessaire dans la nouvelle organisation. Pour les services rattachés à DiLUDDT et DiREP, la question du niveau du référent — service ou direction — reste à arbitrer.";
+      note = "À la DET et à la DiRES, le modèle « un référent par service » s'applique directement — les référents sont déjà en place (anciens services de la direction de l'expertise en sûreté, plus SEMIA qui disposait déjà d'un référent fonctionnel). Une reconduction (ou un remplacement, sur proposition du chef de service) est nécessaire dans la nouvelle organisation. Pour les services rattachés à DiLUDDT et DiREP, la question du niveau du référent — service ou direction — reste à arbitrer.";
     } else if (num == 2) {
-      intro = "La CATEA, placée sous l'autorité du directeur de la DET et dont le chef de programme assure le secrétariat, supervise le programme (priorisation, budget, arbitrages) sur le périmètre élargi. Le modèle reste celui d'un référent par service, animé directement par le chef de programme ; l'intégration de nouveaux services (SCAN, SPDR, SEI, BSNT) augmente le nombre de référents et la charge d'animation.";
-      catea = 'CATEA'; cateaSub = "supervision · priorisation · budget — sous l'autorité du directeur de la DET";
+      intro = "La CATEA, placée sous l'autorité de " + aut + " et dont le chef de programme assure le secrétariat, supervise le programme (priorisation, budget, arbitrages) sur le périmètre élargi. Le modèle reste celui d'un référent par service, animé directement par le chef de programme ; l'intégration de nouveaux services (SCAN, SPDR, SEI, BSNT) augmente le nombre de référents et la charge d'animation.";
+      catea = 'CATEA'; cateaSub = "supervision · priorisation · budget — sous l'autorité de " + aut + "";
       top = 'Chef de programme'; topSub = 'secrétariat de la CATEA · animation directe';
-      row = '<div class="anim-svc-grid cols-6">'
+      row = '<div class="anim-svc-grid cols-7">'
           + '<div class="anim-dir-group"><div class="anim-dir-label">DET</div><div class="anim-dir-tag firm">Référents par service</div><div class="anim-dir-services">'
           + '<div class="anim-svc-ref">SES</div><div class="anim-svc-ref">SSyR</div><div class="anim-svc-ref">SHOT</div><div class="anim-svc-ref">SCEPS</div><div class="anim-svc-ref">SEMIA</div><div class="anim-svc-ref new">SCAN</div><div class="anim-svc-ref new">SPDR</div>'
           + '</div></div>'
@@ -5329,24 +5636,27 @@
           + '<div class="anim-svc-ref tba">SSPE <span class="svc-q">?</span></div><div class="anim-svc-ref tba">SMRE <span class="svc-q">?</span></div><div class="anim-svc-ref tba">SSET <span class="svc-q">?</span></div><div class="anim-svc-ref tba">SFEN <span class="svc-q">?</span></div>'
           + '</div></div>'
           + '<div class="anim-dir-group"><div class="anim-dir-label">DRP</div><div class="anim-dir-tag new">Référent à mettre en place</div><div class="anim-dir-services">'
-          + '<div class="anim-svc-ref new">SEI</div>'
+          + '<div class="anim-svc-ref new">SEI</div><div class="anim-svc-ref new">SSRIV</div><div class="anim-svc-ref new">SECAM</div>'
           + '</div></div>'
           + '<div class="anim-dir-group"><div class="anim-dir-label">DCIS</div><div class="anim-dir-tag new">Référent à mettre en place</div><div class="anim-dir-services">'
           + '<div class="anim-svc-ref new">BSNT</div>'
           + '</div></div>'
+          + '<div class="anim-dir-group"><div class="anim-dir-label">DGA Réacteurs</div><div class="anim-dir-tag firm">Référent à désigner</div><div class="anim-dir-services">'
+          + '<div class="anim-svc-ref">SRI</div>'
+          + '</div></div>'
           + '</div>';
-      note = "Le schéma intègre les services en place (DET, DiRES — à reconduire ou remplacer), les services à arbitrer (DiLUDDT, DiREP — niveau service ou direction à fixer) et les services à intégrer (SCAN, SPDR à la DET ; SEI à la DRP ; BSNT à la DCIS — référents à mettre en place). Réseau élargi mais animation directe encore possible.";
+      note = "Le schéma intègre les services en place (DET, DiRES — à reconduire ou remplacer), les services à arbitrer (DiLUDDT, DiREP — niveau service ou direction à fixer) et les services à intégrer (SCAN, SPDR à la DET ; SEI, SSRIV, SECAM à la DRP ; BSNT à la DCIS — référents à mettre en place). Réseau élargi mais animation directe encore possible.";
     } else if (num == 3) {
-      intro = "La CATEA est adaptée au périmètre élargi : placée sous l'autorité du niveau de portage retenu (DT ou DG), elle supervise désormais l'expertise et le décision et contrôle, le chef de programme en assurant le secrétariat. L'ajout des référents d'instruction fait que l'animation directe atteint ses limites : un relais au niveau des directions devient souhaitable.";
-      catea = 'CATEA'; cateaSub = "supervision élargie expertise + décision et contrôle — sous l'autorité du DT ou de la DG";
+      intro = "La CATEA est adaptée au périmètre élargi : placée sous l'autorité de " + aut + ", elle supervise désormais l'expertise et le décision et contrôle, le chef de programme en assurant le secrétariat. L'ajout des référents d'instruction fait que l'animation directe atteint ses limites : un relais au niveau des directions devient souhaitable.";
+      catea = 'CATEA'; cateaSub = "supervision élargie expertise + décision et contrôle — sous l'autorité de " + aut + "";
       top = 'Chef de programme'; topSub = 'secrétariat de la CATEA · appui de relais en directions';
-      row = '<div class="anim-relay"><div class="ar-name">Référents expertise</div><div class="ar-sub">DET · DiRES · DiLUDDT · DiREP · DRP · DCIS</div></div><div class="anim-relay"><div class="ar-name">Référents décision et contrôle</div><div class="ar-sub">entités d\'instruction</div></div>';
+      row = '<div class="anim-relay"><div class="ar-name">Référents expertise</div><div class="ar-sub">DET · DiRES · DiLUDDT · DiREP · DRP · DCIS · SRI (DGA réacteurs)</div></div><div class="anim-relay"><div class="ar-name">Référents décision et contrôle</div><div class="ar-sub">entités d\'instruction</div></div>';
       note = "Le volume de référents rend l'animation directe difficile : un relais en directions devient nécessaire.";
       noteWarn = true;
       note2 = "En passant par un relais, les référents perdent la transversalité qu'assurait l'animation directe : le chef de programme doit trouver des canaux (communautés de pratique, réseaux thématiques) pour maintenir la synergie entre services.";
     } else {
-      intro = "La CATEA, placée sous l'autorité de la direction générale, supervise l'ensemble des programmes de l'ASNR sur l'IA métier (priorisation, budget, arbitrages, cohérence transverse). Le chef de programme assure son secrétariat et tient un rôle de coordinateur général : il anime la communauté inter-programmes, garantit la cohérence transverse (doctrine, méthodes, capitalisation entre programmes), porte les productions transverses (guides ASNR, AI Act, international) et anime les mutualisations. Chaque direction porte son propre programme selon ses besoins, ses objectifs et ses ressources, avec le soutien institutionnel de l'autorité.";
-      catea = 'CATEA — supervision des programmes ASNR'; cateaSub = "sous l'autorité de la direction générale";
+      intro = "La CATEA, placée sous l'autorité de " + aut + ", supervise l'ensemble des programmes de l'ASNR sur l'IA métier (priorisation, budget, arbitrages, cohérence transverse). Le chef de programme assure son secrétariat et tient un rôle de coordinateur général : il anime la communauté inter-programmes, garantit la cohérence transverse (doctrine, méthodes, capitalisation entre programmes), porte les productions transverses (guides ASNR, AI Act, international) et anime les mutualisations. Chaque direction porte son propre programme selon ses besoins, ses objectifs et ses ressources, avec le soutien institutionnel de l'autorité.";
+      catea = 'CATEA — supervision des programmes ASNR'; cateaSub = "sous l'autorité de " + aut + "";
       top = 'Chef de programme — coordinateur général'; topSub = 'cohérence transverse · doctrine · AI Act · international · mutualisations';
       row = '<div class="opt4-programs">'
           + '<div class="opt4-programs-label">Programmes déclinés dans les directions — soutenus par l\'autorité</div>'
@@ -5401,7 +5711,8 @@
   (function setupRationaleToggles(){
     document.querySelectorAll('table.rating-table[data-option]').forEach(function(table) {
       var opt = table.getAttribute('data-option');
-      var ration = criterionRationales[opt];
+      var ro = criterionRationales[opt];
+      var ration = ro ? ro.compare : null;
       if (!ration) return;
       var rows = table.querySelectorAll('tbody > tr');
       rows.forEach(function(tr, idx) {
@@ -5530,6 +5841,8 @@
     var notesEarly = options[opt].portages[por];
     var scEarly = scoreNorm(notesEarly);
     var lvlEarly = scoreLevel(scEarly);
+    var nbAmb = getRenoncementsAmbition(opt).length;
+    var nbPort = getRenoncements(opt, por).length;
     var icons = { good: '✓', ok: '●', weak: '⚠', poor: '✗' };
     var hints = {
       good: 'Le portage est aligné avec le périmètre — la combinaison est viable.',
@@ -5537,6 +5850,10 @@
       weak: 'Plusieurs activités du périmètre demandent un portage plus élevé — voir le détail ci-dessous.',
       poor: 'Le portage est largement insuffisant pour le périmètre visé — la combinaison est peu viable en l\'état.'
     };
+    var alertBox = '';
+    if (nbAmb > 0) {
+      alertBox = '<div class="aide-coherence-alert"><strong>Attention</strong> — ' + nbAmb + ' activité' + (nbAmb > 1 ? 's' : '') + ' structurante' + (nbAmb > 1 ? 's' : '') + ' du programme ' + (nbAmb > 1 ? 'sont' : 'est') + ' hors du périmètre de cette option (renoncement par limitation d\'ambition).</div>';
+    }
     var coh = document.getElementById('aideCoherenceTop');
     coh.className = 'aide-coherence-top aide-coherence-' + lvlEarly.cls;
     coh.innerHTML =
@@ -5545,6 +5862,7 @@
         '<div class="aide-coherence-label">Cohérence du portage au regard du périmètre</div>' +
         '<div class="aide-coherence-qualifier">' + lvlEarly.label + '</div>' +
         '<div class="aide-coherence-hint">' + hints[lvlEarly.cls] + '</div>' +
+        alertBox +
       '</div>';
 
     // Mise à jour de l'état des boutons Retenir/Écarter
@@ -5564,7 +5882,7 @@
     html += sectionBlock('Périmètre', '<p>' + o.perimetre + '</p>');
 
     // 2. Schéma d\'organisation
-    html += sectionBlock('Schéma d\'organisation', animSchemaHTML(opt));
+    html += sectionBlock('Schéma d\'organisation', animSchemaHTML(opt, por));
 
     // 3. Avantages & points d\'attention
     html += sectionBlock('Avantages et points d\'attention',
@@ -5576,7 +5894,9 @@
     // 4. Notation du portage
     var notes = o.portages[por];
     var sc = scoreNorm(notes);
-    var rats = criterionRationales[String(opt)] || [];
+    var concernees = getActivitesConcernees(opt, por);
+    var roP = criterionRationales[String(opt)];
+    var rats = (roP && roP[por]) ? roP[por] : (roP ? roP.compare : []);
     var notHtml = '<div class="aide-notation">';
     for (var i = 0; i < critFull.length; i++) {
       notHtml += '<div class="aide-crit-row">';
@@ -5591,30 +5911,37 @@
     notHtml += '<div class="aide-score aide-score-' + scLvl.cls + '">';
     notHtml += '<div class="aide-score-left">';
     notHtml += '<span class="aide-score-label">Cohérence du portage au regard du périmètre</span>';
-    notHtml += '<span class="aide-score-qualifier">' + scLvl.label + '</span>';
+    notHtml += '<div class="aide-score-qual-row"><span class="aide-score-qualifier">' + scLvl.label + '</span>' + (concernees.length > 0 ? '<span class="aide-score-reserve">Sous réserve d\'arbitrages sur certaines actions</span>' : '') + '</div>';
     notHtml += '</div>';
     notHtml += '<span class="aide-score-value"><span class="aide-score-value-num">' + sc + '</span><span class="aide-score-value-max"> / 20</span></span>';
     notHtml += '</div>';
     notHtml += '</div>';
     html += sectionBlock('Notation du portage ' + por, notHtml);
 
-    // 5. Renoncements
-    var rens = getRenoncements(opt, por);
-    var renHtml;
-    if (rens.length === 0) {
-      renHtml = '<div class="aide-renonce-empty">À ce niveau d\'ambition et de portage, toutes les activités structurantes du programme sont portables avec la légitimité institutionnelle requise.</div>';
+    // 5. Activités structurantes appelant un positionnement plus élevé (par axe)
+    var renHtml = '';
+    if (concernees.length === 0) {
+      renHtml = '<div class="aide-renonce-empty">À ce niveau d\'ambition et de portage, toutes les activités structurantes du programme peuvent être portées à ce niveau.</div>';
     } else {
-      renHtml = '<div class="aide-renonce-intro">Les activités suivantes du périmètre de l\'option ne peuvent pas être portées légitimement au niveau de portage choisi. À ce niveau, elles doivent être <strong>repositionnées</strong> à un portage plus élevé ou <strong>abandonnées à ce niveau</strong> (quitte à être portées par une autre entité, ce qui reste souvent difficile en pratique car les sujets sont imbriqués).</div>';
-      renHtml += '<div class="aide-renonce-list">';
-      rens.forEach(function (r) {
-        renHtml += '<div class="aide-renonce-item">';
-        renHtml += '<span class="aide-renonce-dim">' + r.label + '</span>';
-        renHtml += '<div class="aide-renonce-need">Légitimité requise : portage <strong>' + r.portage_min + '</strong> au minimum — ' + r.raison + '.</div>';
-        renHtml += '</div>';
+      renHtml = '<div class="aide-renonce-alert"><div class="aide-renonce-intro">Un portage cohérent avec le périmètre n\'exclut pas des renoncements. Il ne s\'agit pas pour l\'ASNR de renoncer à ces activités, mais de renoncer à les porter à ce niveau de portage : regroupées ci-dessous par axe, elles relèvent d\'un positionnement plus élevé — ou d\'un portage par une autre entité, souvent difficile en pratique car les sujets sont imbriqués.</div>';
+      [1, 2, 3, 4].forEach(function (ax) {
+        var lst = concernees.filter(function (r) { return r.axe === ax; });
+        if (lst.length === 0) return;
+        renHtml += '<div class="aide-renonce-block arx-axe-' + ax + '">';
+        renHtml += '<div class="aide-renonce-block-head">' + AXES[ax] + ' <span class="aide-renonce-count">' + lst.length + '</span></div>';
+        renHtml += '<div class="aide-renonce-list">';
+        lst.forEach(function (r) {
+          renHtml += '<div class="aide-renonce-item">';
+          renHtml += '<span class="aide-renonce-dim">' + r.label + '</span>';
+          renHtml += '<div class="aide-renonce-need">' + r.raison + '.</div>';
+          if (r.sousActions && r.sousActions.length) { renHtml += '<ul class="aide-renonce-sous">'; r.sousActions.forEach(function (s) { renHtml += '<li>' + s + '</li>'; }); renHtml += '</ul>'; }
+          renHtml += '</div>';
+        });
+        renHtml += '</div></div>';
       });
       renHtml += '</div>';
     }
-    html += sectionBlock('Activités à repositionner au regard de la légitimité du portage', renHtml);
+    html += sectionBlock('Renoncements ou activités à repositionner', renHtml);
 
     // 6. Synthèse opérationnelle
     var synth = o.synthese || {};
@@ -5798,13 +6125,28 @@
     function colHtml(side, opt, por, o, notes, sc) {
       var eng = optionEngagements[opt];
       var lvl = scoreLevel(sc);
-      var rens = getRenoncements(opt, por);
-      var renoText = rens.length === 0
-        ? '<em>Toutes les activités structurantes sont portables à ce niveau.</em>'
-        : rens.map(function (r) { return '<strong>' + r.label + '</strong> — requiert portage ' + r.portage_min; }).join('<br><br>');
+      var rensAmb = getRenoncementsAmbition(opt);
+      var rensPort = getRenoncements(opt, por);
       var critRows = '';
       for (var i = 0; i < critFull.length; i++) {
         critRows += '<div class="aide-cmp-stars-row"><span class="aide-cmp-crit-name">' + (i+1) + '. ' + critFull[i] + '</span>' + stars(notes[i]) + '</div>';
+      }
+      var renoBlock = '';
+      if (rensAmb.length === 0 && rensPort.length === 0) {
+        renoBlock = '<em>Toutes les activités structurantes sont couvertes et portables à ce niveau.</em>';
+      } else {
+        if (rensAmb.length > 0) {
+          renoBlock += '<div style="margin-bottom:8px;"><strong style="color:#7a4d12;">Hors du périmètre (' + rensAmb.length + ')</strong> — ';
+          renoBlock += rensAmb.slice(0, 3).map(function (r) { return r.label.split(' (')[0].split(' à ')[0].split(' ASNR')[0]; }).join(' · ');
+          if (rensAmb.length > 3) renoBlock += ' · …';
+          renoBlock += '</div>';
+        }
+        if (rensPort.length > 0) {
+          renoBlock += '<div><strong style="color:#7a2818;">Portage insuffisant (' + rensPort.length + ')</strong> — ';
+          renoBlock += rensPort.slice(0, 3).map(function (r) { return r.label.split(' (')[0].split(' à ')[0].split(' ASNR')[0] + ' (requiert ' + r.portage_min + ')'; }).join(' · ');
+          if (rensPort.length > 3) renoBlock += ' · …';
+          renoBlock += '</div>';
+        }
       }
       return '<div class="aide-cmp-col">' +
              '<div class="aide-cmp-col-head">' +
@@ -5816,7 +6158,7 @@
                '<div class="aide-cmp-section"><div class="aide-cmp-section-label">Cohérence du portage</div><div class="aide-cmp-section-text"><span class="aide-cmp-coherence aide-cmp-coherence-' + lvl.cls + '">' + lvl.label + '</span> · ' + sc + ' / 20</div></div>' +
                '<div class="aide-cmp-section"><div class="aide-cmp-section-label">Périmètre</div><div class="aide-cmp-section-text">' + o.perimetre + '</div></div>' +
                '<div class="aide-cmp-section"><div class="aide-cmp-section-label">Notation par critère</div>' + critRows + '</div>' +
-               '<div class="aide-cmp-section"><div class="aide-cmp-section-label">Activités à repositionner</div><div class="aide-cmp-section-text">' + renoText + '</div></div>' +
+               '<div class="aide-cmp-section"><div class="aide-cmp-section-label">Renoncements ou activités à repositionner</div><div class="aide-cmp-section-text">' + renoBlock + '</div></div>' +
              '</div>' +
              '</div>';
     }
